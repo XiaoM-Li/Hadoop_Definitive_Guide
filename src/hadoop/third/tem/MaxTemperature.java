@@ -1,4 +1,8 @@
 package hadoop.third.tem;
+
+/*
+ * 第三版程序，将调试加入到mapper，找到导致异常输出的数据源
+ */
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
