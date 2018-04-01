@@ -40,7 +40,6 @@ public class MaxTemperature extends Configured implements Tool{
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
 		
-		job.setInputFormatClass(CombineTextInputFormat.class);//输入使用CombineFileInputFormat,更好处理小文件
 		
 		FileOutputFormat.setCompressOutput(job, true);//输出设置压缩
 		FileOutputFormat.setOutputCompressorClass(job, GzipCodec.class);
