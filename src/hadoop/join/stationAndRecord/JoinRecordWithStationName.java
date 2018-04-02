@@ -25,6 +25,7 @@ public class JoinRecordWithStationName extends Configured implements Tool {
 		// TODO Auto-generated method stub
 		Job job = Job.getInstance(getConf());
 		job.setJarByClass(getClass());
+		
 
 		MultipleInputs.addInputPath(job, new Path(args[0]), TextInputFormat.class, JoinRecordMapper.class);
 		MultipleInputs.addInputPath(job, new Path(args[1]), TextInputFormat.class, JoinStationMapper.class);
