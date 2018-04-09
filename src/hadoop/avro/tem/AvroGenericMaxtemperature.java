@@ -62,7 +62,7 @@ public class AvroGenericMaxtemperature extends Configured implements Tool{
 		FileOutputFormat.setOutputPath(job, new Path(args[1]));
 		
 		AvroJob.setMapOutputKeySchema(job, Schema.create(Schema.Type.STRING));
-		AvroJob.setInputValueSchema(job, SCHEMA);
+		AvroJob.setMapOutputValueSchema(job,SCHEMA );
 		AvroJob.setOutputKeySchema(job, SCHEMA);
 		
 		job.setInputFormatClass(TextInputFormat.class);
@@ -101,8 +101,11 @@ public class AvroGenericMaxtemperature extends Configured implements Tool{
 				}
 			}
 			
+			context.write(new AvroKey<GenericRecord>(max), NullWritable.get());
 		}
 	}
+	
+	
 	private static GenericRecord newWeatherRecord(GenericRecord value){
 		GenericRecord record= new GenericData.Record(SCHEMA);
 		record.put("year",value.get("year"));

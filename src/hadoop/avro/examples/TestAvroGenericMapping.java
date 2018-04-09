@@ -49,7 +49,10 @@ public class TestAvroGenericMapping {
         Decoder decoder=DecoderFactory.get().binaryDecoder(out.toByteArray(),null);  
         GenericRecord result=reader.read(null,decoder);  
         Assert.assertEquals("L",result.get("left").toString());  
-        Assert.assertEquals("R",result.get("right").toString());  
+        Assert.assertEquals("R",result.get("right").toString()); 
+        
+        System.out.println(result.get("left").toString());
+        System.out.println(result.get("right").toString());
         
     }  
 
