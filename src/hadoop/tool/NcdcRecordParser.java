@@ -18,7 +18,7 @@ public class NcdcRecordParser {
 
 	public void parse(String record) {
 		year = record.substring(15, 19);
-		yearMonthDay=record.substring(15, 23);
+		yearMonthDay=record.substring(15, 19)+"-"+record.substring(19, 21)+"-"+record.substring(21, 23);
 		String airTemperatureString;
 		if (record.charAt(87) == '+') {
 			airTemperatureString = record.substring(88, 92);
