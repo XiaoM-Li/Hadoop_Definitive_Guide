@@ -1,0 +1,17 @@
+Pig中函数有四种类型
+1.计算函数（Evalfunction）
+2.过滤函数（Filterfunction）
+3.加载函数（Loadfunction）
+4.存储函数（Storefunction）
+
+用户自定义函数
+通过使用register操作指定文件的本地路径，告诉这个Jar文件的信息
+register pig-example.jar
+调用自定义函数的时候需要使用完整类名。
+define isGood hadoop.pig.udfdemo.IsGoodQuality();
+为函数定义别名。
+
+自定义一个加载函数
+使用时如下：
+records = load '/input/sample.txt' using com.hadoopbook.pig.CutLoadFunc('16-19,88-92,93-93') as(year:int,temperature:int,quality:int);
+传递给CutLoadFunc的字符串是对列的说明：每一个由逗号分隔的区域定义了一个字段。
